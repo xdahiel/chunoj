@@ -12,6 +12,7 @@ func welcome(w http.ResponseWriter, r *http.Request) {
 func main() {
 	server := http.Server{
 		Addr: "127.0.0.1:8000",
+		Handler : nil,
 	}
 	http.HandleFunc("/", welcome)
 	server.ListenAndServe()
