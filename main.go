@@ -1,25 +1,13 @@
 package main
 
-import (
-	"html/template"
-	"net/http"
-	"time"
-)
+import "github.com/gin-gonic/gin"
 
-func formatDate(t time.Time) string {
-	layout := "2006-01-02"
-	return t.Format(layout)
-}
-func process(w http.ResponseWriter, r *http.Request) {
-	funcMap := template.FuncMap{"fdate": formatDate}
-	t := template.New("templates/tmpl.html").Funcs(funcMap)
-	t, _ = t.ParseFiles("templates/tmpl.html")
-	t.Execute(w, time.Now())
-}
 func main() {
-	server := http.Server{
-		Addr: "127.0.0.1:8080",
-	}
-	http.HandleFunc("/process", process)
-	server.ListenAndServe()
+	r := gin.Default()
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
+	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
