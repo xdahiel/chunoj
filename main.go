@@ -1,15 +1,10 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"io"
-	"os"
+	"chuns.cn/oj/router"
 )
 
 func main() {
-	f, _ := os.Create("gin.log")
-	gin.DefaultWriter = io.Writer(f)
-
-	route := gin.Default()
-	route.GET()
+	r := router.SetupRouter()
+	r.Run()
 }
