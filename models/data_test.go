@@ -6,6 +6,6 @@ import (
 )
 
 func Test_Encrypt(t *testing.T) {
-	plainText := "chunoj"
+	plainText := "test1"
 	fmt.Println(Encrypt(plainText))
 }

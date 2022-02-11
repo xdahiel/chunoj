@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"chuns.cn/oj/models"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -16,6 +17,7 @@ func IndexHandler(c *gin.Context) {
 
 func LoginController(c *gin.Context) {
 	param := c.Params
+	fmt.Println(param)
 	user, err := models.GetUserByUsername(param.ByName("Username"))
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
