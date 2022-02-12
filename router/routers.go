@@ -18,6 +18,7 @@ func SetupRouter() *gin.Engine {
 	r.Use(cors.Default())
 
 	r.POST("/login", controllers.LoginController)
+	r.POST("/register", controllers.RegisterController)
 
 	return r
 }
