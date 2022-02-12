@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func LoginController(c *gin.Context) {
+func LoginAuth(c *gin.Context) {
 	var loginUser models.User
 	c.ShouldBind(&loginUser)
 	fmt.Println(loginUser)
@@ -35,7 +35,7 @@ func LoginController(c *gin.Context) {
 	})
 }
 
-func RegisterController(c *gin.Context) {
+func RegisterAuth(c *gin.Context) {
 	var user models.User
 	c.ShouldBind(&user)
 	fmt.Println(user)

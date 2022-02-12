@@ -63,3 +63,17 @@
 
 后台
 
+
+
+>setup.sql
+>
+>```sql
+>create table users (
+>    id serial not null primary key ,
+>    username varchar(20) not null ,
+>    password varchar(255) not null,
+>    isActive boolean not null ,
+>    email varchar(255)
+>);
+>```
+
